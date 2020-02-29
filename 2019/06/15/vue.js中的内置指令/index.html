@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>vue.js中的内置指令 | WanRu&#39;s Blog | My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="vue学习笔记">
+    <meta name="description" content="一、基本指令v-clock当网速较慢，vue.js文件还没有加载完时，页面上会显示的字样，直到vue.js创建实例、编译模板时，DOM才会被替换，所以这个过程中屏幕会闪动v-clock是一个解决初始化慢导致页面闪动的最佳实践，需要配合display：none使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue.js中的内置指令">
+<meta property="og:url" content="http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:site_name" content="WanRu&#39;s Blog">
+<meta property="og:description" content="一、基本指令v-clock当网速较慢，vue.js文件还没有加载完时，页面上会显示的字样，直到vue.js创建实例、编译模板时，DOM才会被替换，所以这个过程中屏幕会闪动v-clock是一个解决初始化慢导致页面闪动的最佳实践，需要配合display：none使用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-06-15T06:17:22.000Z">
+<meta property="article:modified_time" content="2020-02-29T10:58:07.307Z">
+<meta property="article:author" content="WanRu">
+<meta property="article:tag" content="vue学习笔记">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="WanRu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">WanRu</h5>
+          <a href="mailto:wanru97@163.com" title="wanru97@163.com" class="mail">wanru97@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                全部文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-git"></i>
+                gitee
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue.js中的内置指令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue.js中的内置指令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-15T06:17:22.000Z" itemprop="datePublished" class="page-time">
+  2019-06-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、基本指令"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、基本指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v-clock"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">v-clock</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v-once"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">v-once</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、条件渲染指令"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、条件渲染指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v-if、v-else-if、v-else"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">v-if、v-else-if、v-else</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v-show"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">v-show</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于v-show和v-if的比较"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">关于v-show和v-if的比较</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、列表渲染指令"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、列表渲染指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遍历多个对象（一定是数组）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">遍历多个对象（一定是数组）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遍历一个对象的多个属性"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">遍历一个对象的多个属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组更新"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">数组更新</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue.js中的内置指令"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue.js中的内置指令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-15 14:17:22" datetime="2019-06-15T06:17:22.000Z"  itemprop="datePublished">2019-06-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、基本指令"><a href="#一、基本指令" class="headerlink" title="一、基本指令"></a>一、基本指令</h2><h3 id="v-clock"><a href="#v-clock" class="headerlink" title="v-clock"></a>v-clock</h3><p>当网速较慢，vue.js文件还没有加载完时，页面上会显示的字样，直到vue.js创建实例、编译模板时，DOM才会被替换，所以这个过程中屏幕会闪动<br><strong>v-clock是一个解决初始化慢导致页面闪动的最佳实践，需要配合display：none使用</strong></p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    [v-cloak]&#123;</span><br><span class="line">        display:none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;app&quot; v-cloak&gt;</span><br><span class="line">    &#123;&#123;message&#125;&#125;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var app &#x3D;new Vue(&#123;</span><br><span class="line">        el:&#39;.app&#39;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:&#39;信息显示&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h3><p><strong>v-once指令的作用是定义它的元素或组件只渲染一次。首次渲染后不会随着数据的变化重新渲染，将被视为静态内容</strong></p>
+<h2 id="二、条件渲染指令"><a href="#二、条件渲染指令" class="headerlink" title="二、条件渲染指令"></a>二、条件渲染指令</h2><h3 id="v-if、v-else-if、v-else"><a href="#v-if、v-else-if、v-else" class="headerlink" title="v-if、v-else-if、v-else"></a>v-if、v-else-if、v-else</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-if&#x3D;&quot;num&#x3D;&#x3D;&#x3D; 3&quot;&gt;此时num为3，将num数值改为2时看看&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p v-else-if&#x3D;&quot;num&#x3D;&#x3D;&#x3D; 2&quot;&gt;num数值为2时显示该行&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p v-else&gt;否则显示该行&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<p>举个栗子<del>_</del>：<br>有一个用户名输入框，点击按钮后，变为密码输入框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;app&quot; &gt;</span><br><span class="line">&lt;div v-if&#x3D;&quot;type&#x3D;&#x3D;&#x3D;&#39;name&#39;&quot;&gt;用户：&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;请输入&quot;&#x2F;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div v-else&gt;密码：&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;请输入&quot;&#x2F;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;button v-on:click&#x3D;&quot;typebut&quot;&gt;点击切换&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var app &#x3D;new Vue(&#123;</span><br><span class="line">        el:&#39;.app&#39;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            type:&#39;name&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            typebut:function()&#123;</span><br><span class="line">               this.type&#x3D;(this.type&#x3D;&#x3D;&#x3D;&#39;name&#39;?&#39;pas&#39; :&#39;name&#39;)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>问题出现了，在输入框输入内容后点击切换，虽然DOM变了，但是之前的输入框内容并没有改变，这说明input元素被复用了<br><strong>如何解决这个问题呢？可以添加key属性，key的值必须是唯一的</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-if&#x3D;&quot;type&#x3D;&#x3D;&#x3D;&#39;name&#39;&quot;&gt;用户：&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;请输入&quot; key&#x3D;&quot;usename&quot;&#x2F;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div v-else&gt;密码：&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;请输入&quot; key&#x3D;&quot;passworld&quot;&#x2F;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><p><strong>v-show的用法与v-if相似，只不过v-show是改变元素的css属性display，当v-show的表达式值为false时元素会隐藏，在DOM上看会有display:none</strong></p>
+<h3 id="关于v-show和v-if的比较"><a href="#关于v-show和v-if的比较" class="headerlink" title="关于v-show和v-if的比较"></a>关于v-show和v-if的比较</h3><p><strong>v-if是实时渲染，从DOM结构上看，条件为真时就渲染，不是真时就移除</strong><br><strong>v-show的元素是一直存在于DOM结构上的，只是条件为真时就隐藏而已</strong></p>
+<h2 id="三、列表渲染指令"><a href="#三、列表渲染指令" class="headerlink" title="三、列表渲染指令"></a>三、列表渲染指令</h2><p>v-for指令的用法</p>
+<h3 id="遍历多个对象（一定是数组）"><a href="#遍历多个对象（一定是数组）" class="headerlink" title="遍历多个对象（一定是数组）"></a>遍历多个对象（一定是数组）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;app&quot; &gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for&#x3D;&quot;(arrs,index) in arr&quot;&gt;&#123;&#123;index+1&#125;&#125;-------&#123;&#123;arrs.name&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var app &#x3D;new Vue(&#123;</span><br><span class="line">    el:&#39;.app&#39;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        arr:[</span><br><span class="line">        &#123;name:&quot;第一条&quot;&#125;,</span><br><span class="line">        &#123;name:&quot;第二条&quot;&#125;,</span><br><span class="line">        &#123;name:&quot;第三条&quot;&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="遍历一个对象的多个属性"><a href="#遍历一个对象的多个属性" class="headerlink" title="遍历一个对象的多个属性"></a>遍历一个对象的多个属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;app&quot; &gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for&#x3D;&quot;(value,key,index) in user&quot;&gt;&#123;&#123;index+1&#125;&#125;-------&#123;&#123;key&#125;&#125;:&#123;&#123;value&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var app &#x3D;new Vue(&#123;</span><br><span class="line">    el:&#39;.app&#39;,</span><br><span class="line">    data:&#123;</span><br><span class="line">       user:&#123;</span><br><span class="line">                name:&quot;哈哈&quot;,</span><br><span class="line">                sex:&quot;男&quot;,</span><br><span class="line">                age:33</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="数组更新"><a href="#数组更新" class="headerlink" title="数组更新"></a>数组更新</h3><p><strong>改变数组的一系列方法：（js基础）</strong></p>
+<ul>
+<li>push( )  —–在数组的最后一位添加</li>
+<li>pop( )   —–弹出数组的最后一位</li>
+<li>shift( )   —–弹出数组的第一位</li>
+<li>unshift( ） —–在数组的第一位添加</li>
+<li>sort( )        —–排序</li>
+<li>splice( )     —–参数(位置，替换长度，替换内容)，可以做到删除，增加，替换数组</li>
+<li>reverse( )  —–反转数组<br>以上方法改变的是原数组</li>
+<li>filter( )  —–过滤数组</li>
+<li>concat( )  —–拼接数组</li>
+<li>slice( )  —–提取数组中元素，参数(开始位置，结束位置)<br>它们返回的是新的数组<br><strong>问题来了，以下变动的数组中，vue是不能检测到的，也不会触发视图更新</strong><blockquote>
+<ol>
+<li>改变数组的指定项，例如：app.book[3]=”《计算机导论技术》”**</li>
+<li>修改数组的长短，例如：app.book.length=1**</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p><strong>解决：改变数组的指定项</strong><br>使用vue内置的set方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(app.book,3,&quot;《计算机导论技术》&quot;);</span><br></pre></td></tr></table></figure>
+<p><strong>解决：修改数组的长短</strong><br>可以直接使用splice方法来解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.book.splice(1)</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        只有在你竭尽全力，粉身碎骨之时，才听天由命
+        
+    </div>
+    
+    <footer>
+        <a href="http://wanru97.gitee.io/wanrublog">
+            <img src="/img/avatar.jpg" alt="WanRu">
+            WanRu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">vue学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/&title=《vue.js中的内置指令》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/&title=《vue.js中的内置指令》 — WanRu's Blog&source=一、基本指令v-clock当网速较慢，vue.js文件还没有加载完时，页面上会显示的字样，直到vue.js创建实例、编译模板时，DOM才会被替换，所以这个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue.js中的内置指令》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Vue.js 表单与v-model</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue的v-bind指令</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>WanRu &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/&title=《vue.js中的内置指令》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/&title=《vue.js中的内置指令》 — WanRu's Blog&source=一、基本指令v-clock当网速较慢，vue.js文件还没有加载完时，页面上会显示的字样，直到vue.js创建实例、编译模板时，DOM才会被替换，所以这个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue.js中的内置指令》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNUlEQVR42u3awY7iMBAE0Pn/n2alPY20G6hqG4mYlxNCUeJnDkV3++cnvh5/r9+ff3/z7z1XT7i65+ppyffP37t0YWNjY9+E/Xh6XbGTrWnv3/vNlQUbGxv7VHbLyOMqiZwk3pLgzAMSGxsb+zvZSYTkZcms8EjWg42NjY2dBENeeCSFTXK1K8HGxsb+NnbyshdtmpLRkvIA29xLw8bGxv549mzQ+5mf3z7fxsbGxv4w9krYRH/3ywZQW6LMFNjY2NgnsfPBbT6UnaVG24TKD/1sY2BjY2N/PLsNlfaATtIwStpVKwd9/hNg2NjY2Eew8yMyK698/n1e2LQjjeiZ2NjY2Ldlt2VAG2zJxg0jZ/QWbGxs7PPYs3IibwbN2kDtQHdp+7CxsbGPY7/jTNDe5tHmwgYbGxv7CHYOa8Npvf3Uxljxw2BjY2MfxF4vSFZa+fnT2uOY+bABGxsb+77svS34PIry5eZDi6JcwcbGxj6IvVKc5G39NiZn5VO+TmxsbOzz2LPltk2oXQ2jPJyiwzrY2NjYN2evHKxs20DJ9rVvmY0rsLGxsc9j53/rkybRrDxYL2ySp1320rCxsbFvzp6FWV5OJAGWDCHyFtWLKMXGxsY+iN0OdGfj3vZwz/o4GRsbGxu7jYe2/CjKhlGYzdaPjY2NfUd2uwez00A55rFwFevExsbGPpSdB08eKklEzca9yRZcrhAbGxv7IHbysrat07aT8kDKNzr6ebCxsbGPYD+/Keft2qZ2+4YbhI2NjX0cO2/ct5/zozzrg4dkJS96adjY2Ng3ZCeN/iQ82hlyC3j75mJjY2MfwW7b68Mha7wd+VA5HzP8tOmHjY2NfSt226yfDXTzgGxDND88hI2NjX02exZms7b+rsImT6jNGY6NjY39AexHea38k2+3aeWeF+0nbGxs7IPYswBYOWrTxtjsmNHKj4GNjY19R3a+xJX2zUpzqm1gRaGFjY2NfRy7HbvuavqsR1o7isbGxsbGzkOiDcK8/bThLdjY2NhfyU4KkvWhwq6iBRsbG/vb2LNW/spIoD2y0/4M2NjY2N/DnrV+kte3Q4WVMcBKyYSNjY19W/YfozDoTDHVSSUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

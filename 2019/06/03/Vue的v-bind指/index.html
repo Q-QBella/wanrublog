@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Vue的v-bind指令 | WanRu&#39;s Blog | My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="vue学习笔记">
+    <meta name="description" content="在之前的学习中了解了v-bind指令，今天学习如何绑定class和绑定style绑定class的多种方式，绑定style的多种方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue的v-bind指令">
+<meta property="og:url" content="http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/index.html">
+<meta property="og:site_name" content="WanRu&#39;s Blog">
+<meta property="og:description" content="在之前的学习中了解了v-bind指令，今天学习如何绑定class和绑定style绑定class的多种方式，绑定style的多种方式">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-06-03T06:17:22.000Z">
+<meta property="article:modified_time" content="2020-02-29T10:59:57.085Z">
+<meta property="article:author" content="WanRu">
+<meta property="article:tag" content="vue学习笔记">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="WanRu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">WanRu</h5>
+          <a href="mailto:wanru97@163.com" title="wanru97@163.com" class="mail">wanru97@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                全部文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-git"></i>
+                gitee
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vue的v-bind指令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Vue的v-bind指令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-03T06:17:22.000Z" itemprop="datePublished" class="page-time">
+  2019-06-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#绑定class的几种方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">绑定class的几种方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">对象语法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组语法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">数组语法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Vue的v-bind指"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vue的v-bind指令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-03 14:17:22" datetime="2019-06-03T06:17:22.000Z"  itemprop="datePublished">2019-06-03</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>在之前的学习中了解了v-bind指令，今天学习如何绑定class和绑定style<br>绑定class的多种方式，绑定style的多种方式</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="绑定class的几种方式"><a href="#绑定class的几种方式" class="headerlink" title="绑定class的几种方式"></a>绑定class的几种方式</h3><h4 id="对象语法"><a href="#对象语法" class="headerlink" title="对象语法"></a>对象语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"> .box&#123;</span><br><span class="line">        border:1px solid #ccc;</span><br><span class="line">        height:30px;</span><br><span class="line">        width:140px;</span><br><span class="line">    &#125;</span><br><span class="line">    .active&#123;</span><br><span class="line">        background: red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">     &lt;div :class&#x3D;&quot;&#123;&#39;box&#39;:isbox,&#39;active&#39;:isactive&#125;&quot;&gt;绑定class对象语法&lt;&#x2F;div&gt; &lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var app &#x3D; new Vue(&#123;</span><br><span class="line">        el:&#39;#app&#39;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isactive: false,</span><br><span class="line">            isbox: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>类名box依赖数据isbox，当isbox为true时，div会拥有类名box，当isbox的值为false时，div不会拥有类名box.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div :class&#x3D;&quot;&#123;&#39;类名&#39;:数据名&#125;&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>练习一个小的dome：点击按钮后，div的背景会从蓝色切换成红色，再次点击后会切换回来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">.box&#123;</span><br><span class="line">    height:50px;</span><br><span class="line">    width:100px;</span><br><span class="line">&#125;</span><br><span class="line">.active1&#123;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">.active2&#123;</span><br><span class="line">    background: blue;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;div :class&#x3D;&quot;&#123;&#39;box&#39;:isbox,&#39;active1&#39;:isactive1,&#39;active2&#39;:isactive2&#125;&quot;&gt;点击按钮改变背景的颜色&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;button&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var app &#x3D; new Vue(&#123;</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        isbox: true,</span><br><span class="line">        isactive1: true,</span><br><span class="line">        isactive2: false</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        button:function()&#123;</span><br><span class="line">            if(this.isactive1)&#123;</span><br><span class="line">                this.isactive1&#x3D;false;</span><br><span class="line">                this.isactive2&#x3D;true;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                this.isactive1&#x3D;true;</span><br><span class="line">                this.isactive2&#x3D;false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>当class的表达式过长或者是逻辑复杂时，可以绑定一个计算属性，这是一个很常见的用法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app2&quot;&gt;</span><br><span class="line">    &lt;div :class&#x3D;&quot;classes&quot;&gt;绑定计算属性的例子&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">var app2&#x3D; new Vue(&#123;</span><br><span class="line">    el:&quot;#app2&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        isactive1: true,</span><br><span class="line">        isactive2: false</span><br><span class="line">    &#125;,</span><br><span class="line">    computed:&#123;</span><br><span class="line">        classes:function()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                &#39;active1&#39;:this.isactive1,</span><br><span class="line">                &#39;active2&#39;:this.isactive2</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="数组语法"><a href="#数组语法" class="headerlink" title="数组语法"></a>数组语法</h4><p>当需要应用多个 class 时， 可以使用数组语法 ， 给：class 绑定一个数组，应用一个 class<br>列表：<br>数组成员直接对应className–类名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &lt;div :class&#x3D;&quot;[数据名1，数据名2]&quot;&gt;&lt;&#x2F;div&gt; --&gt;</span><br><span class="line"> &lt;div :class&#x3D;&quot;[class1，class2]&quot;&gt;例子&lt;&#x2F;div&gt;</span><br><span class="line">var app &#x3D; new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            class1: ‘active’,</span><br><span class="line">            class2: &#39;box&#39;</span><br><span class="line">        &#125;</span><br><span class="line">)&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        只有在你竭尽全力，粉身碎骨之时，才听天由命
+        
+    </div>
+    
+    <footer>
+        <a href="http://wanru97.gitee.io/wanrublog">
+            <img src="/img/avatar.jpg" alt="WanRu">
+            WanRu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">vue学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/&title=《Vue的v-bind指令》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/&title=《Vue的v-bind指令》 — WanRu's Blog&source=
+在之前的学习中了解了v-bind指令，今天学习如何绑定class和绑定style绑定class的多种方式，绑定style的多种方式
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue的v-bind指令》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue.js中的内置指令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/28/Vue%E7%9A%84%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue的计算属性</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>WanRu &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/&title=《Vue的v-bind指令》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/&title=《Vue的v-bind指令》 — WanRu's Blog&source=
+在之前的学习中了解了v-bind指令，今天学习如何绑定class和绑定style绑定class的多种方式，绑定style的多种方式
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue的v-bind指令》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/06/03/Vue%E7%9A%84v-bind%E6%8C%87/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aS24jMQwFQN//0sl2gInlR1IMOkD1yoj7o+oAEv3E1ys+voLj3zPP95k867Vx4OHh4V0d+vmc5D7/w873P4+w/Arw8PDw1njnSTz/fB5EPnvnz/1gwcPDw3sAr1dq5xN9fj4eHh7eX+FVC+58wUiuwsPDw3sOrxolzMvxXsyxmLXg4eHhLewiPefzyv4eHh4e3qWGgOqE2wsm8jK6MFo8PDy8Bd6tRqhqKTxfkJJx4uHh4W3wksef/5JsYuUxx60AAg8PD2+PV41T52V0NaLNGwuaQ8TDw8Mr8m61VVU3z/LFYPQvwcPDw1vmTbbEzo9Mvj2PJCnr35bReHh4eL/Cm5TFvdAhGXo5nsDDw8Nb4OXl7Pmm+fZVdei9Dqvy13h4eHhFXj75JmVxNVCYRMnRq8HDw8Nb4yXb/9XN/t4L6sUfH5oG8PDw8C7x8h/2vS2r3mbYPID4IWvBw8PDW+PlW/jnayeNVvmy9KFwx8PDw1vg5ZtYk4aAaqAwiT+ilBoPDw9vwKtO7j18tdSutoW9faF4eHh4C7x549SFFanYoFD9jIeHh7fBq07K+cKQF9nVwr3cdIWHh4d3iTfZgppsVlW7G3plOh4eHt7v8HqhQDXGzUvtfHF6W0zj4eHhXeXdapPKGwWqS9HkKjw8PLw9Xg6YtALk5Xi+OBX+Y3h4eHhrvOSy6hDzV1Z9uXh4eHhP4M1j1urikQe1yRGV1Hh4eHgD3lfx6G165dtaedtBFIjg4eHhLfB6E25vQp8U3L0FDA8PD2+Ply8Gk7I7H3Sv4SDqj8DDw8O7ypsEEPnUX+hiGEcSeHh4eE/jJXV6r67P262ikAIPDw/vMbxeqNoLHSatWnh4eHh7vGrjVK91dXJmtR0BDw8Pb49X/nkfn1MNLHoF/e30Ag8PD+9wfANgw5KXv0N6eAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

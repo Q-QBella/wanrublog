@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Vue.js 表单与v-model | WanRu&#39;s Blog | My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="vue学习笔记">
+    <meta name="description" content="vue.js提供了v-model指令，用于在表单类元素上双向绑定数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js 表单与v-model">
+<meta property="og:url" content="http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/index.html">
+<meta property="og:site_name" content="WanRu&#39;s Blog">
+<meta property="og:description" content="vue.js提供了v-model指令，用于在表单类元素上双向绑定数据">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-06-23T07:09:14.000Z">
+<meta property="article:modified_time" content="2020-02-29T10:58:07.304Z">
+<meta property="article:author" content="WanRu">
+<meta property="article:tag" content="vue学习笔记">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="WanRu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">WanRu</h5>
+          <a href="mailto:wanru97@163.com" title="wanru97@163.com" class="mail">wanru97@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                全部文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-git"></i>
+                gitee
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vue.js 表单与v-model</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Vue.js 表单与v-model</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-23T07:09:14.000Z" itemprop="datePublished" class="page-time">
+  2019-06-23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本用法"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在输入框上和文本域上的用法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在输入框上和文本域上的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单选按钮"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">单选按钮</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单个单选按钮"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">单个单选按钮</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多个单选按钮"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">多个单选按钮</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#复选框"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">复选框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单独使用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">单独使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组合使用"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">组合使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下拉列表"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">下拉列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单选"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">单选</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多选"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">多选</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">2.</span> <span class="post-toc-text">修饰符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lazy"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">.lazy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#number"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">.number</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#trim"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">.trim</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Vue.js表单与v-model"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vue.js 表单与v-model</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-23 15:09:14" datetime="2019-06-23T07:09:14.000Z"  itemprop="datePublished">2019-06-23</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p><strong>vue.js提供了v-model指令，用于在表单类元素上双向绑定数据</strong></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><h2 id="在输入框上和文本域上的用法"><a href="#在输入框上和文本域上的用法" class="headerlink" title="在输入框上和文本域上的用法"></a>在输入框上和文本域上的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">在输入框中的用法&lt;br &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;输入内容&quot; v-model&#x3D;&quot;inText&quot;&#x2F;&gt;</span><br><span class="line">输入框中输入的内容是:&#123;&#123;inText&#125;&#125;&lt;br&#x2F;&gt;</span><br><span class="line">在文本域中的用法&lt;br &#x2F;&gt;</span><br><span class="line">&lt;textarea v-model&#x3D;&quot;inTextarea&quot; cols&#x3D;&quot;30&quot; rows&#x3D;&quot;5&quot;&gt;&lt;&#x2F;textarea&gt;</span><br><span class="line">文本域中输入的内容是:&#123;&#123;inTextarea&#125;&#125;&lt;br&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var app&#x3D;new Vue(&#123;</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        inText:&#39;&#39;,</span><br><span class="line">        inTextarea:&#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：使用v-model后，表单显示的值只依赖所绑定的数据，不再关心其初始值</strong><br><strong>使用v-model时，输入汉字时，在拼音阶段是不会更新数据的，只有在选定词组之后才会更新，如果需要实时更新，用@input来代替v-model，具体写法使用时查阅即可</strong></p>
+<h2 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h2><h3 id="单个单选按钮"><a href="#单个单选按钮" class="headerlink" title="单个单选按钮"></a>单个单选按钮</h3><p>不需要v-model，直接使用v-bind:checked绑定一个布尔值，为真时选中，为否是不选中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(1)、单个单选按钮&lt;br &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;radio&quot; :checked&#x3D;&quot;picked&quot; &#x2F;&gt;苹果&lt;br &#x2F;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var app&#x3D;new Vue(&#123;</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        picked:false</span><br><span class="line">     &#125;</span><br><span class="line">     &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="多个单选按钮"><a href="#多个单选按钮" class="headerlink" title="多个单选按钮"></a>多个单选按钮</h3><p>需要v-model配合value使用，绑定数据的值与value一致时就会选中该项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(2)、多个单选按钮&lt;br &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;radio&quot; v-model&#x3D;&quot;pickme&quot; value&#x3D;&quot;苹果&quot; &#x2F;&gt;苹果&lt;br &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;radio&quot; v-model&#x3D;&quot;pickme&quot; value&#x3D;&quot;香蕉&quot; &#x2F;&gt;香蕉&lt;br &#x2F;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;radio&quot; v-model&#x3D;&quot;pickme&quot; value&#x3D;&quot;桃子&quot; &#x2F;&gt;桃子&lt;br &#x2F;&gt;</span><br><span class="line">现在选中的选项是:&#123;&#123;pickme&#125;&#125;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var app&#x3D;new Vue(&#123;</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        pickme:&#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><p>与单选按钮不同的是，复选框单独使用时可以使用v-model绑定一个布尔值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;checkbox&quot; v-model&#x3D;&quot;checked&quot;&#x2F;&gt;铅笔&lt;br &#x2F;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">       var app&#x3D;new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            checked:false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="组合使用"><a href="#组合使用" class="headerlink" title="组合使用"></a>组合使用</h3><p>与多个单选按钮的写法一样，也是v-model和value一起，但是绑定的数据类型必须是数组<br>在勾选时候，value的值会自动push到绑定的数据数组中</p>
+<h2 id="下拉列表"><a href="#下拉列表" class="headerlink" title="下拉列表"></a>下拉列表</h2><h3 id="单选"><a href="#单选" class="headerlink" title="单选"></a>单选</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select v-model&#x3D;&quot;other&quot;&gt;</span><br><span class="line">    &lt;option value&#x3D;&quot;天津&quot;&gt;天津&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;option value&#x3D;&quot;北京&quot;&gt;北京&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;option value&#x3D;&quot;上海&quot;&gt;上海&lt;&#x2F;option&gt;</span><br><span class="line">&lt;&#x2F;select&gt;</span><br><span class="line">&lt;p&gt;选择的选项是&#123;&#123;other&#125;&#125;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<p>绑定的other数据的数据类型为字符串<br><strong>option中含有value属性时v-model会优先匹配value的值，如果没有则直接匹配option的text</strong></p>
+<h3 id="多选"><a href="#多选" class="headerlink" title="多选"></a>多选</h3><p>只需添加multiple属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select v-model&#x3D;&quot;others&quot; multiple&gt;</span><br><span class="line">    &lt;option value&#x3D;&quot;天津&quot;&gt;天津&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;option value&#x3D;&quot;北京&quot;&gt;北京&lt;&#x2F;option&gt;</span><br><span class="line">    &lt;option value&#x3D;&quot;上海&quot;&gt;上海&lt;&#x2F;option&gt;</span><br><span class="line">&lt;&#x2F;select&gt;</span><br><span class="line">&lt;p&gt;选择的选项是&#123;&#123;others&#125;&#125;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：绑定的others数据的数据类型是数组</p>
+<h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><h2 id="lazy"><a href="#lazy" class="headerlink" title=".lazy"></a>.lazy</h2><p>在输入框中，v-mode默认是在input事件中同步输入框的数据，使用修饰符.lazy会使与输入框绑定的数据不会实时改变，而是在失去焦点或是按回车的时候才更新。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; v-model.lazy&#x3D;&quot;msg&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="number"><a href="#number" class="headerlink" title=".number"></a>.number</h2><p>使用修饰符.number可以将输入的数据转换成Number类型，否则就算是输入的数据是数字，但其实是String类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; v-model.number&#x3D;&quot;msg&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="trim"><a href="#trim" class="headerlink" title=".trim"></a>.trim</h2><p>.trim修饰符可以自动过滤输入的首尾空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot; v-model.trim&#x3D;&quot;msg&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        只有在你竭尽全力，粉身碎骨之时，才听天由命
+        
+    </div>
+    
+    <footer>
+        <a href="http://wanru97.gitee.io/wanrublog">
+            <img src="/img/avatar.jpg" alt="WanRu">
+            WanRu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">vue学习笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/&title=《Vue.js 表单与v-model》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/&title=《Vue.js 表单与v-model》 — WanRu's Blog&source=
+vue.js提供了v-model指令，用于在表单类元素上双向绑定数据
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue.js 表单与v-model》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/15/vue.js%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue.js中的内置指令</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>WanRu &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/&title=《Vue.js 表单与v-model》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/&title=《Vue.js 表单与v-model》 — WanRu's Blog&source=
+vue.js提供了v-model指令，用于在表单类元素上双向绑定数据
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue.js 表单与v-model》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLUlEQVR42u3aQXIbMQwEQP//00pVTjlEmxlgHXvp3pNKtkQ2fYCB4cdH/Lx+P9ev299//fFcf7b9htsebGxs7IewX5dPwrveer7FBPluz7kFGxsb+1R2UoTyUnF9ZMk7yUHMCio2Njb2T2bnBekfxSPuC5LvxMbGxsbeF7CkMcgPpYVhY2NjY+dDpXyU3x7TLE74T7M0bGxs7G/Pvivo/Q6vvyDfxsbGxv5S9qt8on/xRz+dFcKhAhsbG/sg9mfEru3FnU0jkTcnxeawsbGxH8XOh0R5o7KJZmdFtP3jYWNjY5/E3oSvyU83jc0+JI4OAhsbG/sI9uaKzH541DYtSbMRlT1sbGzsI9j5kGi2ZPL/f4ucUYvShY2Njf0odhsGJO+3cewmqEjGUtjY2Ng/gZ1sa3ZxJylLdx1BXcCwsbGxj2DnF2hmo/lZTNvGwPW3YWNjYx/EbqPcljeLjTfFtV4LGxsb+yD2vQVsM8S/92JQMVrCxsbGfiC7bRvaSVVbzNrhVHv1BxsbG/s89uaaTtsetGOmWQhdRAvY2NjYB7Fno/98gbxpyduM/JiKeAAbGxv74ey7GAlmFgkUjNli2NjY2I9lJ9ttS8t+0/l1ojwJ+ctQCRsbG/vh7LwZSF63x9cO/duG5O2nsLGxsQ9i70czs/FTvq02VF41RdjY2NgPZO8vwbSty11D//b9t5d1sLGxsR/OTiLePIhtSZtSd00twl1sbGzsQ9nJwGgTA88u1sw++3ZdbGxs7CPYbVyatBzJ7CophEmcMFsLGxsb+2x2G5duooL8+GYjpLerYGNjYx/E3lyUnBWS9pLQLJaIFNjY2NhHsGfjnk37kbc3bSRQvI+NjY19HLsIR0ejqFkAMBshRQ82Njb2cez8aUdOedMyu+jTjq6wsbGxz2NvSl1bYPJN5GvNSi82Njb2eey2qWhPLi9pm8+2YQM2Njb2eey2kGyC27axyRuV4g+AjY2N/SPZs61vZvVJ2JyviI2NjY3dtgob9jUyCQxua0WwsbGxH8LOl8/D1M9oVGZxxSoewMbGxv727LuC3vb9TfOTXOhJih82Njb2w9m/AOaPbfGLzOc8AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

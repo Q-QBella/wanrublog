@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Hexo的安装与部署 | WanRu&#39;s Blog | My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hexo">
+    <meta name="description" content="一、前期准备工作(一) 安装gitgit下载地址,找到对应的系统下载安装即可安装后在桌面点击鼠标右键会显示两个选项Git GUI Here和Git Bash Here，就安装成功啦 (二) 安装node.js和npmnode.js下载地址,找到对应系统下载安装，安装成功后可以在桌面点击右键选择Git Bash Here，打开后，输入命令node -v，会显示node的版本号，输入命令npm -v，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo的安装与部署">
+<meta property="og:url" content="http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="WanRu&#39;s Blog">
+<meta property="og:description" content="一、前期准备工作(一) 安装gitgit下载地址,找到对应的系统下载安装即可安装后在桌面点击鼠标右键会显示两个选项Git GUI Here和Git Bash Here，就安装成功啦 (二) 安装node.js和npmnode.js下载地址,找到对应系统下载安装，安装成功后可以在桌面点击右键选择Git Bash Here，打开后，输入命令node -v，会显示node的版本号，输入命令npm -v，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-005a733afb9cc3ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-bf543ed2d3d061bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-595ef5d3f038debe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-5649fffb909895d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2019-03-22T09:53:31.000Z">
+<meta property="article:modified_time" content="2020-02-29T10:12:41.801Z">
+<meta property="article:author" content="WanRu">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11049080-005a733afb9cc3ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="WanRu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">WanRu</h5>
+          <a href="mailto:wanru97@163.com" title="wanru97@163.com" class="mail">wanru97@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                全部文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-git"></i>
+                gitee
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hexo的安装与部署</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hexo的安装与部署</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-22T09:53:31.000Z" itemprop="datePublished" class="page-time">
+  2019-03-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、前期准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、前期准备工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-安装git"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">(一) 安装git</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-安装node-js和npm"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">(二) 安装node.js和npm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-准备Github的账号"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">(三) 准备Github的账号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-配置SSH"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">(四) 配置SSH</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、开始下载安装hexo"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、开始下载安装hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-下载安装hexo"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">(一)下载安装hexo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-将本地文件部署到github上"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">(二)将本地文件部署到github上</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Hexo的安装与部署"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo的安装与部署</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-22 17:53:31" datetime="2019-03-22T09:53:31.000Z"  itemprop="datePublished">2019-03-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一、前期准备工作"><a href="#一、前期准备工作" class="headerlink" title="一、前期准备工作"></a>一、前期准备工作</h2><h3 id="一-安装git"><a href="#一-安装git" class="headerlink" title="(一) 安装git"></a>(一) 安装git</h3><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git下载地址</a>,找到对应的系统下载安装即可<br>安装后在桌面点击鼠标右键会显示两个选项<strong>Git GUI Here</strong>和<strong>Git Bash Here</strong>，就安装成功啦</p>
+<h3 id="二-安装node-js和npm"><a href="#二-安装node-js和npm" class="headerlink" title="(二) 安装node.js和npm"></a>(二) 安装node.js和npm</h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">node.js下载地址</a>,找到对应系统下载安装，安装成功后可以在桌面点击右键选择<strong>Git Bash Here</strong>，打开后，输入命令<strong>node -v</strong>，会显示node的版本号，输入命令<strong>npm -v</strong>，会显示npm的版本号</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-005a733afb9cc3ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查看版本号" title="">
+                </div>
+                <div class="image-caption">查看版本号</div>
+            </figure>
+<a id="more"></a>
+<h3 id="三-准备Github的账号"><a href="#三-准备Github的账号" class="headerlink" title="(三) 准备Github的账号"></a>(三) 准备Github的账号</h3><p>我们需要注册一个github账号，来托管我们的博客，<a href="https://github.com/" target="_blank" rel="noopener">传送门地址</a><br>注册完成后，登录点击<strong>start a project</strong>   创建一个库</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-bf543ed2d3d061bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+<p>库的名字需要以这样的形势填写—–&gt;用户名.github.io</p>
+<h3 id="四-配置SSH"><a href="#四-配置SSH" class="headerlink" title="(四) 配置SSH"></a>(四) 配置SSH</h3><p>如果没有配置过SSH，需要配置一下SSH，这样每次从本地上传到github就不必填写用户名和密码，这样更加方便<br>SSH是一种网络协议，用于计算机之间的加密，主要用于远程登陆</p>
+<ol>
+<li>先设置一下你的邮箱和用户名<br>在git窗口中输入下面两条命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+<li>生成ssh密钥<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+<li>进入根目录下，查找<strong>.ssh</strong>文件夹，打开文件<strong>id_rsa.pub</strong>，将里面的内容复制<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~     &#x2F;&#x2F;进入根目录</span><br><span class="line">cd .ssh      &#x2F;&#x2F;进入.ssh文件夹</span><br><span class="line">vi id_rsa.pub   &#x2F;&#x2F;打开这个文件，复制内容后输入:q退出文件</span><br></pre></td></tr></table></figure></li>
+<li>打开github，点击右上角的头像先择setting，将复制的内容填写进去<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-595ef5d3f038debe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+这样你的密钥就完成了<h2 id="二、开始下载安装hexo"><a href="#二、开始下载安装hexo" class="headerlink" title="二、开始下载安装hexo"></a>二、开始下载安装hexo</h2><h3 id="一-下载安装hexo"><a href="#一-下载安装hexo" class="headerlink" title="(一)下载安装hexo"></a>(一)下载安装hexo</h3>利用npm安装hexo，在你想要放hexo文件的地方点击右键选择<strong>Git Bash Here</strong><br>输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+下载完成后接着输入命令，hexo会自动在该文件夹下生成网站所需要的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+安装依赖包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+现在你就可以看看博客的样子啦~<br>输入以下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g   &#x2F;&#x2F;生成静态文件</span><br><span class="line">hexo s   &#x2F;&#x2F;开启本地服务器，ctrl+c关闭服务器</span><br></pre></td></tr></table></figure>
+用你的浏览器访问localhost:4000（一般端口号都是4000），你就可以看到刚刚安装的博客了，但是这是在你的本地上，别人并不能看见，我们需要把它部署到github上，让别人都可以看见<h3 id="二-将本地文件部署到github上"><a href="#二-将本地文件部署到github上" class="headerlink" title="(二)将本地文件部署到github上"></a>(二)将本地文件部署到github上</h3>打开你放置hexo文件的地方找到_config.yml文件，用你的编辑器打开这个文件,(repository: <a href="mailto:git@github.com">git@github.com</a>:用户名/用户名.github.io.git)<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-5649fffb909895d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+然后执行下面命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+部署完成啦，现在只要访问【https://你的用户名.github.io/】这个网址就大功告成了。</li>
+</ol>
+<p>在这整个过程中你也许会遇到报错，不要慌张，去翻墙谷歌一下。懒得翻墙的可以去Bing搜索一下问题，你一定可以找到解决方法的~</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        只有在你竭尽全力，粉身碎骨之时，才听天由命
+        
+    </div>
+    
+    <footer>
+        <a href="http://wanru97.gitee.io/wanrublog">
+            <img src="/img/avatar.jpg" alt="WanRu">
+            WanRu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/&title=《Hexo的安装与部署》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/&title=《Hexo的安装与部署》 — WanRu's Blog&source=一、前期准备工作(一) 安装gitgit下载地址,找到对应的系统下载安装即可安装后在桌面点击鼠标右键会显示两个选项Git GUI Here和Git Bas..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo的安装与部署》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/22/Hexo%E7%9A%84%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%8D%A2%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hexo的主题更换与使用教程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">如何使用GitHub</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>WanRu &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/&title=《Hexo的安装与部署》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/&title=《Hexo的安装与部署》 — WanRu's Blog&source=一、前期准备工作(一) 安装gitgit下载地址,找到对应的系统下载安装即可安装后在桌面点击鼠标右键会显示两个选项Git GUI Here和Git Bas..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo的安装与部署》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNklEQVR42u3awY4aMRAE0P3/nyZSTpGSma1yz0bYPJ8QLMbPSNu4y19f8Xj9HlePr5758/m/35t84tVsV48fHtjY2NibsF+3I2G3j+8XnZDu13lvwcbGxj6VnRStyymCpeTz5xvUbhM2NjY29j01eTU/oiQzY2NjY2NPCkze+klGsgVtwwsbGxv709hrgPrDyqPL2nHl4V4aNjY29tuz50Hv+zz+r/k2NjY29huwX+VIGkDzCKEtP7UCGxsb+yB228RJmkH5QnPwJH64XAk2Njb2Eey19v38os8kTpgfmbCxsbHPY+f/+tc2og2G86s8i0ECNjY29kHsyVFhDdO2+JOy17aZsLGxsU9l59Hps2VsUizbTcHGxsY+j93y8qb/ZPvW5snbVdjY2NjnsZ+KVyfbkUfLkwtDRSqCjY2NvQm7JeXUycEjhz3WisLGxsbenD3/6b8WzSZLXAuPo+YUNjY29hHs/ADQtubzUvTU4aSImbGxsbGPY//0UtrgNt/ovKBG8QA2Njb2huw8dr3/mPnI2/0PBxjY2NjYm7OLztMgeWgbT20bq54HGxsb+yB2fsxYu/2SRwL54WRyVaj4I2xsbOyt2E+VjXzRbeg7fzU6kGBjY2NvyM4b7m37Zm3mtnXVfgFfebaAjY2NvQl7Punaq21U0MKi1hg2Njb2Eez85/taDNyy1/o/+WWjy6MINjY29rbsnJcXnhazdiUoD3rr6o2NjY29FXutyT7fiHn0mx+l/vE8NjY29kHstSPHs4HBnDSKq7GxsbE3Z7c71DaVXvH4ias/l/NjY2NjH8Rew0yuQq6FEGtNqG++NmxsbOwj2Hk7Zq045Zdv2oAhefXyeWxsbOzj2MnbkmXlBa+NGYq8OhnY2NjYx7Hb1k++TXkxa7d49FnY2NjYB7EnpW4tNmjDgOQKUV7e6i3AxsbG3oQ9iWDzODYvnE/FBt9sBDY2NvZx7LUjwVqL/6mrQqOTBTY2NvZHsteu0bQbuhY81NEvNjY29gez748ca22g9tpQ/q4HjiLY2NjYm7DbifKCMWlXJdFCu2XY2NjY57Hbdkxe2No2UBtI3FelNgbGxsbG3pD9C7mu1JhJL04VAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

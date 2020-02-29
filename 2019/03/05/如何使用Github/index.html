@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>如何使用GitHub | WanRu&#39;s Blog | My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Github">
+    <meta name="description" content="Git是什么？Git 是用于 Linux内核开发的版本控制工具。版本控制工具就是用于记录开发过程的每个版本 GitHub是什么?它是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，所以叫GitHub。我们可以从使用GitHub的方式去了解如何使用Git。  安装Gitgit下载地址,找到对应的系统下载安装即可安装后在桌面点击鼠标右键会显示两个选项Git GU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用GitHub">
+<meta property="og:url" content="http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/index.html">
+<meta property="og:site_name" content="WanRu&#39;s Blog">
+<meta property="og:description" content="Git是什么？Git 是用于 Linux内核开发的版本控制工具。版本控制工具就是用于记录开发过程的每个版本 GitHub是什么?它是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，所以叫GitHub。我们可以从使用GitHub的方式去了解如何使用Git。  安装Gitgit下载地址,找到对应的系统下载安装即可安装后在桌面点击鼠标右键会显示两个选项Git GU">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-09efdb361c1a85d1..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-4d67eb60ec0593f5..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-22b87db01a5b3c1c..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-aa14adcc78847003..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-d03438baf25cffaa..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-8d000804c936ffe6..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-66a630b373787de7..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11049080-518d232571d87528..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2019-03-05T12:00:01.000Z">
+<meta property="article:modified_time" content="2020-02-29T11:02:47.086Z">
+<meta property="article:author" content="WanRu">
+<meta property="article:tag" content="Github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11049080-09efdb361c1a85d1..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+        <link rel="alternate" type="application/atom+xml" title="WanRu&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">WanRu</h5>
+          <a href="mailto:wanru97@163.com" title="wanru97@163.com" class="mail">wanru97@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                全部文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-git"></i>
+                gitee
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">如何使用GitHub</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">如何使用GitHub</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-05T12:00:01.000Z" itemprop="datePublished" class="page-time">
+  2019-03-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Git是什么？"><span class="post-toc-number">1.</span> <span class="post-toc-text">Git是什么？</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#GitHub是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">GitHub是什么?</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Git"><span class="post-toc-number"></span> <span class="post-toc-text">安装Git</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建用户"><span class="post-toc-number"></span> <span class="post-toc-text">创建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置SSH-Key"><span class="post-toc-number"></span> <span class="post-toc-text">设置SSH Key</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建仓库"><span class="post-toc-number"></span> <span class="post-toc-text">创建仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#clone已有库"><span class="post-toc-number"></span> <span class="post-toc-text">clone已有库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本操作方法"><span class="post-toc-number"></span> <span class="post-toc-text">基本操作方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#向远程库提交文件"><span class="post-toc-number"></span> <span class="post-toc-text">向远程库提交文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#把本地新建的项目推送到github上"><span class="post-toc-number"></span> <span class="post-toc-text">把本地新建的项目推送到github上</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-如何使用Github"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何使用GitHub</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-05 20:00:01" datetime="2019-03-05T12:00:01.000Z"  itemprop="datePublished">2019-03-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<h5 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h5><p>Git 是用于 Linux内核开发的版本控制工具。版本控制工具就是用于记录开发过程的每个版本</p>
+<h5 id="GitHub是什么"><a href="#GitHub是什么" class="headerlink" title="GitHub是什么?"></a>GitHub是什么?</h5><p>它是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，所以叫GitHub。<br>我们可以从使用GitHub的方式去了解如何使用Git。</p>
+</blockquote>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git下载地址</a>,找到对应的系统下载安装即可<br>安装后在桌面点击鼠标右键会显示两个选项<strong>Git GUI Here</strong>和<strong>Git Bash Here</strong></p>
+<a id="more"></a>
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p><strong>去GitHub注册一个账号</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-09efdb361c1a85d1..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="设置SSH-Key"><a href="#设置SSH-Key" class="headerlink" title="设置SSH Key"></a>设置SSH Key</h2><p>为了让你的GitHub账户认识你的笔记本，给笔记本权限操作你账户中的库</p>
+<ul>
+<li>在GitHub页面上的右上角有一个头像，点击它，点击Settings，找到SSH and GPG keys,去使用一下它的帮助，<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-4d67eb60ec0593f5..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>点击后寻找Generating a new SSH key and adding it to the ssh-agent,<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-22b87db01a5b3c1c..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+复制这一行代码，把它输入终端后，一直按回车（注意：改成你的邮箱）<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-aa14adcc78847003..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+此时它会在你的文件夹下生成一个私钥id_rsa和一个公钥id_rsa.pub,接下来我们需要把id_rsa.pub的内容拷贝下来，你可以使用vim编辑器去拷贝也可以输入cat id_rsa.pub,去用鼠标拷贝（注意：要完整的复制，不要少）<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-d03438baf25cffaa..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>打开GitHub页面，点击New SSH keys，在title下输入名称（什么都行），在key下粘贴，点击添加<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-8d000804c936ffe6..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2></li>
+<li>点击Start a project，输入库名，设置为公有（私有收费），勾选一下初始化生成一个READMA文件（一般都会勾选，作者会在文件中写出项目概要，流程，等信息）<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-66a630b373787de7..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="clone已有库"><a href="#clone已有库" class="headerlink" title="clone已有库"></a>clone已有库</h2></li>
+<li>在页面中寻找clone or download，点击后使用Use SSH，复制它提供的链接<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/11049080-518d232571d87528..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>打开你想存放库的文件夹，右键<strong>Git Bash Here</strong>打开终端，此时上方会显示文件夹的路径，输入git clone (你复制的地址)，回车，等待下载完成后就可以在本地库中添加文件，进行代码的编写。<h2 id="基本操作方法"><a href="#基本操作方法" class="headerlink" title="基本操作方法"></a>基本操作方法</h2><h3 id="向远程库提交文件"><a href="#向远程库提交文件" class="headerlink" title="向远程库提交文件"></a>向远程库提交文件</h3>在本地库中编辑文件后想要更新到远程库上<br>打开终端(路径应该是本地库文件夹),输入git命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .               &#x2F;&#x2F;将所有文件添加到暂存区，点代表所有文件</span><br><span class="line">git commit -m&quot;自己填写信息&quot;    &#x2F;&#x2F;填写简洁的概述操作信息</span><br><span class="line">git push origin master     &#x2F;&#x2F;更新远程仓库的master分支</span><br></pre></td></tr></table></figure>
+当你第一次提交到远程库时可能会出现让你设置你的邮箱和密码，输入后会弹出一个githu的登陆页面，登陆进去就可以<h3 id="把本地新建的项目推送到github上"><a href="#把本地新建的项目推送到github上" class="headerlink" title="把本地新建的项目推送到github上"></a>把本地新建的项目推送到github上</h3>如果是要放在新的库中需要在github上创建一个新的库，然后复制库的地址</li>
+<li>在项目文件夹下打开终端(注意路径)，输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init      &#x2F;&#x2F;初始化仓库，把该文件变成本地仓库</span><br><span class="line">git remote add origin 地址    &#x2F;&#x2F;将本地仓与远程仓链接</span><br><span class="line">git add .</span><br><span class="line">git commit -m&#39;填写记录&#39;</span><br><span class="line">git push origin master    &#x2F;&#x2F;更新到远程仓库中</span><br></pre></td></tr></table></figure>
+接下来只需要在项目文件夹下编辑文件，然后使用git向远程仓库提交即可<br>更新未完结。。。。<br>以上内容是从《GitHub入门与实践》书中，结合本人的使用总结而来，如果有错误请见谅。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        只有在你竭尽全力，粉身碎骨之时，才听天由命
+        
+    </div>
+    
+    <footer>
+        <a href="http://wanru97.gitee.io/wanrublog">
+            <img src="/img/avatar.jpg" alt="WanRu">
+            WanRu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/&title=《如何使用GitHub》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/&title=《如何使用GitHub》 — WanRu's Blog&source=
+Git是什么？Git 是用于 Linux内核开发的版本控制工具。版本控制工具就是用于记录开发过程的每个版本
+GitHub是什么?它是一个面向开源及私有软..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何使用GitHub》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/22/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hexo的安装与部署</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>WanRu &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/&title=《如何使用GitHub》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/&title=《如何使用GitHub》 — WanRu's Blog&source=
+Git是什么？Git 是用于 Linux内核开发的版本控制工具。版本控制工具就是用于记录开发过程的每个版本
+GitHub是什么?它是一个面向开源及私有软..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何使用GitHub》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2019/03/05/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJklEQVR42u3ay27jQAwEwPz/T3uvOazl7qEC2HTpFPghTU2AdEjOz098PX5d1+/+/kz7ev6s5JM3XNjY2Ngfwn5cXvkDrr/b/pxs8fV3rzcXGxsbex87iYqzOHkEVxtIyRa/MGJjY2N/MfsZrN2yyfZNfj3Y2NjY2HnHZr6JbfsJGxsb+5vZSZEweVjbKkp4yes39NKwsbGx357dBtI7//wn821sbGzsN2Y/yisPm+QpeYydxdXT52JjY2MvYrft+8P2TYm/9z5PNxQbGxt7BTtn5JGWv54MAybb9PQVbGxs7EXsvygYkoJkvug2tOrZCDY2NvbHsvOFto2kdontSg4PHmFjY2OvYCd/6Nt4axtPeRkzL1qwsbGxN7Hzpk/yyfa4TwJu21tR7GFjY2OvZif/7k+iZRJg8/h8cVIJGxsbexH7Ok7mjf5kue1z6/4ZNjY29gr2n9wupiZ3vndtT8cD2NjY2B/LzhtJbXHSFgx5KdKG5X++i42Njb2Ife9BnHyDzo7jXP+S7jo8hI2Njf1Z7HzEe1YknDWY2k2PRgLtLmJjY2N/IPssJNrRbD5+OGs8RUURNjY29iJ2jj97ZDtUmMdVMajAxsbGXsFuGz1JKXLWPGoHuqP7Y2NjY69j5+HRjoTb0W8ehKPDQNjY2Njr2PPWT3uHvPXTHsqJptnY2NjY69j5TeebdVfTf1SiYGNjY69jTwa67bHLSVMp36AX68TGxsZeys6jq5ghx62l/CmTwQA2Njb2Vna79LM4aUOrHfrmMYmNjY29iZ033POwmYwB2ncnR3ywsbGx97GTtv5ZcZJHWl6KTAbS2NjY2N/GbvH5YDgfJJwhsbGxsb+NnYdK26Zvy5KzAqluS2FjY2OvYD/Kqw2JNgLbJlTbAsPGxsbex86vvBi4azzcBttdsYeNjY39iew2tPLWTzu+PSsz2vVgY2Njb2Unt54Pd9staOOtaDNhY2NjY8fHHM8GyZMRb7Td2NjY2F/PPmvHt1s5mmAnTSVsbGzsRey2GDhrzefx1o4Z8jjExsbG3seeR8XZIZ62UTVpMI3m29jY2Njvy/4Hq0whTFASSPMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
