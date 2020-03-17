@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>学习Grid布局笔记 | WanRu&#39;s Blog | My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Grid布局">
+    <meta name="description" content="学习Grid布局笔记 就是将页面划分成一个个的格子，任意组合不同的格子做出想要的布局样式  重要概念1. 容器和项目在一个区域设置display：grid后，该区域就是一个容器（container），容器内部采取网格定位的子元素称为项目（item）注意：项目一定是容器中的顶层子元素，项目中的子元素不是项目2. 行和列容器中的垂直区域称为“列(column)”,水平区域称为“行(row)”3. 单元">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习Grid布局笔记">
+<meta property="og:url" content="http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="WanRu&#39;s Blog">
+<meta property="og:description" content="学习Grid布局笔记 就是将页面划分成一个个的格子，任意组合不同的格子做出想要的布局样式  重要概念1. 容器和项目在一个区域设置display：grid后，该区域就是一个容器（container），容器内部采取网格定位的子元素称为项目（item）注意：项目一定是容器中的顶层子元素，项目中的子元素不是项目2. 行和列容器中的垂直区域称为“列(column)”,水平区域称为“行(row)”3. 单元">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-03T10:18:30.000Z">
+<meta property="article:modified_time" content="2020-03-17T10:26:45.491Z">
+<meta property="article:author" content="WanRu">
+<meta property="article:tag" content="Grid布局">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="WanRu&#39;s Blog" href="/wanrublog/atom.xml">
+    
+    <link rel="shortcut icon" href="/wanrublog/favicon.ico">
+    <link rel="stylesheet" href="/wanrublog/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/wanrublog/img/brand.jpg)">
+      <div class="brand">
+        <a href="/wanrublog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/wanrublog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">WanRu</h5>
+          <a href="mailto:wanru97@163.com" title="wanru97@163.com" class="mail">wanru97@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/wanrublog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/wanrublog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                全部文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/wanrublog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://gitee.com/wanru97" target="_blank" >
+                <i class="icon icon-lg icon-git"></i>
+                gitee
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">学习Grid布局笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">学习Grid布局笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-03T10:18:30.000Z" itemprop="datePublished" class="page-time">
+  2020-03-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#学习Grid布局笔记"><span class="post-toc-number">1.</span> <span class="post-toc-text">学习Grid布局笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重要概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">重要概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#容器属性"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">容器属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#display-grid"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">display:grid</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#grid-template-column、grid-template-row"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">grid-template-column、grid-template-row</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-repeat"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">1. repeat()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-auto-fill"><span class="post-toc-number">1.2.2.2.</span> <span class="post-toc-text">2. auto-fill</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-fr"><span class="post-toc-number">1.2.2.3.</span> <span class="post-toc-text">3. fr</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-auto"><span class="post-toc-number">1.2.2.4.</span> <span class="post-toc-text">4. auto</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#行间距，列间距"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">行间距，列间距</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#grid-template-areas"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">grid-template-areas</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#grid-auto-flow"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">grid-auto-flow</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单元格中所有内容位置"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">单元格中所有内容位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容器中内容区域的位置"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">容器中内容区域的位置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#项目属性"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">项目属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指定项目位置"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">指定项目位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#grid-area"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">grid-area</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#justify-self和align-self"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">justify-self和align-self</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Grid布局笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">学习Grid布局笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-03 18:18:30" datetime="2020-03-03T10:18:30.000Z"  itemprop="datePublished">2020-03-03</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="学习Grid布局笔记"><a href="#学习Grid布局笔记" class="headerlink" title="学习Grid布局笔记"></a>学习Grid布局笔记</h1><blockquote>
+<p>就是将页面划分成一个个的格子，任意组合不同的格子做出想要的布局样式</p>
+</blockquote>
+<h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><p><strong>1. 容器和项目</strong><br>在一个区域设置display：grid后，该区域就是一个容器（container），容器内部采取网格定位的子元素称为项目（item）<br>注意：项目一定是容器中的顶层子元素，项目中的子元素不是项目<br><strong>2. 行和列</strong><br>容器中的垂直区域称为“列(column)”,水平区域称为“行(row)”<br><strong>3. 单元格</strong><br>垂直区域和水平区域相交叉的区域称为“单元格(cell)”<br><strong>4. 网格线</strong><br>划分网格的线叫做“网格线(grid line)”<br>水平网格线划分出行，垂直网格线划分出列<br>五行就有六根水平网格线，五列就有六根垂直网格线</p>
+<hr>
+<blockquote>
+<p>Grid属性分为两类，一类在容器上，叫容器属性，一类在项目上叫做项目属性</p>
+</blockquote>
+<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="display-grid"><a href="#display-grid" class="headerlink" title="display:grid"></a>display:grid</h3><p>指定该区域为网格布局，也可以设置成inline-grid</p>
+<h3 id="grid-template-column、grid-template-row"><a href="#grid-template-column、grid-template-row" class="headerlink" title="grid-template-column、grid-template-row"></a>grid-template-column、grid-template-row</h3><p>用来定义每一列的宽度，和每一行的高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">    display:grid;</span><br><span class="line">    grid-template-row: 100px 100px 100px;</span><br><span class="line">    grid-template-column: 100px 100px 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码就是定义了三行三列的网格，宽高分别为100px的格子<br>可以使用绝对单位px，也可以使用百分比</p>
+<h4 id="1-repeat"><a href="#1-repeat" class="headerlink" title="1. repeat()"></a>1. repeat()</h4><p>重复写麻烦，可以使用repeat()函数<br>第一个参数是重复次数，第二个参数是重复的数值<br>三行三列可以表达成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.content&#123;</span><br><span class="line">    display:grid;</span><br><span class="line">    grid-template-row: repeat(3，33.3%);</span><br><span class="line">    grid-template-column: repeat(3，33.3%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>repeat(2，100px 20px 100px)这个定义了六列</p>
+<h4 id="2-auto-fill"><a href="#2-auto-fill" class="headerlink" title="2. auto-fill"></a>2. auto-fill</h4><p>格子的大小确定了，但容器大小没有确定，想要每一行(列)尽可能容纳多的格子，可以使用关键字suto-fill，表示自动填充<br><code>repeat(auto-fill,100px)</code></p>
+<h4 id="3-fr"><a href="#3-fr" class="headerlink" title="3. fr"></a>3. fr</h4><p>表示比例关系，2fr是1fr的2倍<br><code>grid-template-columns: 1fr 2fr;</code></p>
+<h4 id="4-auto"><a href="#4-auto" class="headerlink" title="4. auto"></a>4. auto</h4><p>表示自动大小<br><code>grid-template-columns: 12% auto 12%;</code></p>
+<h3 id="行间距，列间距"><a href="#行间距，列间距" class="headerlink" title="行间距，列间距"></a>行间距，列间距</h3><p>grid-column-gap是设置列间距<br>grid-row-gap是设置行间距<br>grid-gap是设置行和列的简写方式<br>grid-gap:&lt;行&gt;&lt;列&gt;;省略第二个值后，会被认为第二个值等于第一个值</p>
+<h3 id="grid-template-areas"><a href="#grid-template-areas" class="headerlink" title="grid-template-areas"></a>grid-template-areas</h3><p>用于指定区域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grid-template-areas: &quot;header header header&quot;</span><br><span class="line">                     &quot;.      main    .&quot;</span><br><span class="line">                     &quot;footer footer footer&quot;;</span><br></pre></td></tr></table></figure>
+<p>某些区域不需要使用就用点替代</p>
+<h3 id="grid-auto-flow"><a href="#grid-auto-flow" class="headerlink" title="grid-auto-flow"></a>grid-auto-flow</h3><p>网格分好后会按照顺序安放子元素，默认顺序是先行后列<br>grid-auto-flow是用来决定安放顺序的<br>grid-auto-flow:column就是先列后行</p>
+<h3 id="单元格中所有内容位置"><a href="#单元格中所有内容位置" class="headerlink" title="单元格中所有内容位置"></a>单元格中所有内容位置</h3><p>justify-items决定单元格内容的水平位置<br>align-items决定单元格内容的垂直位置<br>属性值分别有：</p>
+<ul>
+<li>start向上对齐</li>
+<li>end向下对齐</li>
+<li>center居中</li>
+<li>stretch充满</li>
+</ul>
+<p>简写形式：place-items:&lt;垂直&gt;&lt;水平&gt;</p>
+<h3 id="容器中内容区域的位置"><a href="#容器中内容区域的位置" class="headerlink" title="容器中内容区域的位置"></a>容器中内容区域的位置</h3><p>整个内容区域在容器里面的位置<br>justify-content<br>align-content<br>属性值同上<br>place-content:&lt;垂直&gt;&lt;水平&gt;</p>
+<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><h3 id="指定项目位置"><a href="#指定项目位置" class="headerlink" title="指定项目位置"></a>指定项目位置</h3><p>就是指定项目的边框在那一条网格线上</p>
+<ul>
+<li>grid-column-start:左边框所在位置</li>
+<li>grid-column-end:右边框所在位置</li>
+<li>grid-row-start：上边框</li>
+<li>grid-row-end：下边框</li>
+</ul>
+<p>简写形式：</p>
+<ul>
+<li>grid-column:<start><end></li>
+<li>grid-row:<start><end></li>
+</ul>
+<h3 id="grid-area"><a href="#grid-area" class="headerlink" title="grid-area"></a>grid-area</h3><p>指定项目放在哪一区域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#header&#123;</span><br><span class="line">    grid-area:header;</span><br><span class="line">&#125;</span><br><span class="line">接上面容器属性指定区域介绍中的代码看</span><br></pre></td></tr></table></figure>
+<h3 id="justify-self和align-self"><a href="#justify-self和align-self" class="headerlink" title="justify-self和align-self"></a>justify-self和align-self</h3><p>和justify-items、align-items用法一样，但只作用于单元格</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        只有在你竭尽全力，粉身碎骨之时，才听天由命
+        
+    </div>
+    
+    <footer>
+        <a href="http://wanru97.gitee.io/wanrublog">
+            <img src="/wanrublog/img/avatar.jpg" alt="WanRu">
+            WanRu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/wanrublog/tags/Grid%E5%B8%83%E5%B1%80/" rel="tag">Grid布局</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/&title=《学习Grid布局笔记》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/&title=《学习Grid布局笔记》 — WanRu's Blog&source=This is my blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习Grid布局笔记》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/wanrublog/2019/06/23/Vue.js%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue.js 表单与v-model</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/wanrublog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>WanRu &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/&title=《学习Grid布局笔记》 — WanRu's Blog&pic=http://wanru97.gitee.io/wanrublog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/&title=《学习Grid布局笔记》 — WanRu's Blog&source=This is my blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习Grid布局笔记》 — WanRu's Blog&url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/&via=http://wanru97.gitee.io/wanrublog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wanru97.gitee.io/wanrublog/2020/03/03/Grid%E5%B8%83%E5%B1%80%E7%AC%94%E8%AE%B0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIElEQVR42u3aS27jUAwEQN//0sl2gIHsJvkc2FRpFfgjqeQFQzYfj/j4+e+4ev3q3X9fef7d5+e8Os/jHQc2Njb2l7CTi11d/vlNJOz88c0fJTY2NvZudo55Xgsmxe/qWnkBSyzY2NjY2NXbTQph/pm8KGJjY2Nj581Ab8BU/Vb+WLGxsbHvye6NdZK2odquJO9W4wpsbGzs3ew8Ff38v9+Sb2NjY2N/MLu3NJPErr1C0hsnlRXY2NjYi9h5AcgvWa0aScmcnOfygWJjY2OvY+eD+94gKW8qJoOhwuoPNjY29gp2b/Fl3hiUf5ni56MODBsbG3sdOz9F0sDMG5U8Bi4PpLCxsbGXsvOWIykkkxWc3mJQfl1sbGzsO7ATZC8MrpbMtxRFbGxs7HXspEhUg4FeSJw8+mTsFcUD2NjY2OvYk8IzOUMS/eY/QxR1YGNjY69j96LTfHWmFxjnkXP1W9jY2Nib2L0FnepRXbiM1m6Kaz0vyhg2Njb217InjUcOrvIm5SoKMLCxsbFvw+7Bqq+8I1R+MXjCxsbGXsfO49W/iXLnUcGLpgUbGxt7HXvSZuTjocmiTz4hi66FjY2NvYidr1pOxkbVd08Vy2hohY2Njf3l7F5jkMSr1QCgWrpGMyJsbGzsRexT5acX6J6NHKpjJmxsbOwd7OplqsUsX6mvDrmSFuXy/NjY2Njr2HlJqH6mV9LyaHm0fImNjY29iF0dzcyHRPkYK1/cLNwtNjY29lJ2L3attiWn3s0XhqKhEjY2NvbXsnv/3OcDpvnCTfUzedOCjY2NvYk9Lz/J+KlXls5GvNjY2Nh3YOdlKQ9WT52zEOUm38XGxsZexz47yuk9lOpQqXef2NjY2JvYP8UjoVYLUvlXCoLkF48PGxsbexG7WgzysX7yaHqLmMdaEWxsbOxF7Lxo5WOjapnsBcZ5O4SNjY19B/b7otz8lSagNWbCxsbGxj4VFeQRQv64Cys72NjY2Ddm54OkpGlJAoBeGIyNjY19H3Zv3D9pNnpjqVNFDhsbG3sTuzyOaYUEOaNakJ6XtwP5NjY2Nvbnsn8BcSADvo+LqKYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/wanrublog/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/wanrublog/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/wanrublog/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
