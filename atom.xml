@@ -6,7 +6,7 @@
   <link href="/wanrublog/atom.xml" rel="self"/>
   
   <link href="http://wanru97.gitee.io/wanrublog/"/>
-  <updated>2020-03-17T10:26:45.491Z</updated>
+  <updated>2020-03-24T09:22:34.278Z</updated>
   <id>http://wanru97.gitee.io/wanrublog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>chrome版本更新跨域登录后状态失效</title>
+    <link href="http://wanru97.gitee.io/wanrublog/2020/03/24/chrome%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E8%B7%A8%E5%9F%9F%E7%99%BB%E5%BD%95%E5%90%8E%E7%8A%B6%E6%80%81%E5%A4%B1%E6%95%88/"/>
+    <id>http://wanru97.gitee.io/wanrublog/2020/03/24/chrome%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E8%B7%A8%E5%9F%9F%E7%99%BB%E5%BD%95%E5%90%8E%E7%8A%B6%E6%80%81%E5%A4%B1%E6%95%88/</id>
+    <published>2020-03-24T09:20:03.000Z</published>
+    <updated>2020-03-24T09:22:34.278Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><p>写多人共享博客项目，在测试接口阶段时发现，通过API进行登录，登录成功后，再通过API判断是否登录，一直显示‘目前尚未登录’，相当于我登录后，向后台发送请求时，后台还是认为我没有登录</p><h2 id="寻找解决方法"><a href="#寻找解决方法" class="headerlink" title="寻找解决方法"></a>寻找解决方法</h2><p>一开始我以为是第二次向后台发送请求时没有携带上cookie<br>使用axios需要设置<br><code>axios.defaults.withCredentials = true;</code><br>withCredentials属性默认为false，表示不携带cookie发送请求<br>但是！！！我的代码已经设置了这个属性为true<br>后来我怀疑是不是因为接口有问题，我单独把登录后返回的cookie复制，然后带着cookie进行发送请求判断是否登录<br>发现，完全没有问题！！！判断结果很正确！！<br>难道是我的电脑有问题？我尝试用其他电脑用chrome进行测试(这个电脑的chrome是很旧的版本)，发现一切正常！</p><h2 id="找到原因"><a href="#找到原因" class="headerlink" title="找到原因"></a>找到原因</h2><p>后来发现在后台发现了一个我忽略的警告</p><blockquote><p>A cookie associated with a cross-site resource at http://。。。。。 was set without the SameSite attribute. It has been blocked, as Chrome now only delivers cookies with cross-site requests if they are set with SameSite=None and Secure. You can review cookies in developer tools under Application&gt;Storage&gt;Cookies and see more details at</p></blockquote><p>大概意思就是cookie没有设置SameSite属性，然后它被阻止了,因为 Chrome现在只提供带有跨站点请求的Cookie,需要给cookie设置 SameSite=None 和 Secure<br>就是因为chrom新版本的规则改变了</p><blockquote><p>在Chrome 80版本中，Chrome会将没有声明SameSite值的cookie默认设置为SameSite=Lax。只有采用SameSite=None; Secure设置的cookie可以从外部访问，前提是通过安全连接（即HTTPS）访问。</p></blockquote><p>具体可以看看我找到的<a href="https://blog.csdn.net/sinat_36521655/article/details/104844667?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">这篇博客</a><br>在这篇博客中我找到了解决办法</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ol><li>修改后台<br>需要设置响应头时带上这个属性，根据要求写出属性值，不写secure是无效的，并且需要是https<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: widget_session&#x3D;abc123; SameSite&#x3D;None; Secure</span><br></pre></td></tr></table></figure></li><li>修改chrome浏览器的设置<br>chrome://flags/<br>关闭这两个功能<br>SameSite by default cookies<br>Cookies without SameSite must be secure<br>两个选项都选择Disable<br>然后重启浏览器</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;发现问题&quot;&gt;&lt;a href=&quot;#发现问题&quot; class=&quot;headerlink&quot; title=&quot;发现问题&quot;&gt;&lt;/a&gt;发现问题&lt;/h2&gt;&lt;p&gt;写多人共享博客项目，在测试接口阶段时发现，通过API进行登录，登录成功后，再通过API判断是否登录，一直显示‘目前尚未登录’
+      
+    
+    </summary>
+    
+    
+    
+      <category term="我的bug" scheme="http://wanru97.gitee.io/wanrublog/tags/%E6%88%91%E7%9A%84bug/"/>
+    
+  </entry>
   
   <entry>
     <title>学习Grid布局笔记</title>
